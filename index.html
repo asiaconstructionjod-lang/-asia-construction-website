@@ -139,6 +139,7 @@
     </div>
     <div class="lightbox-main">
       <video id="vlVideo" controls playsinline controlsList="nodownload noremoteplayback" style="max-width:100%;max-height:70vh;"></video>
+      <iframe id="vlYoutube" style="display:none;width:100%;aspect-ratio:16/9;max-height:70vh;border:0;" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
     </div>
     <p class="lightbox-desc" id="vlDesc"></p>
   </div>
@@ -457,7 +458,15 @@ function renderProjects(){
 // ---- Reels / video gallery ----
 var videoLightbox = document.getElementById('videoLightbox');
 var vlVideoEl = document.getElementById('vlVideo');
+var vlYoutubeEl = document.getElementById('vlYoutube');
 vlVideoEl.oncontextmenu = function(){ return false; };
+
+// Recognizes youtube.com/watch, youtu.be, youtube.com/shorts and /embed links
+function getYouTubeId(url){
+  if (!url) return null;
+  var m = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
+  return m ? m[1] : null;
+}
 
 function renderReels(){
   var grid = document.getElementById('reelsGrid');
@@ -470,19 +479,28 @@ function renderReels(){
       var src = (typeof v === 'string') ? v : (v.video || '');
       if (!src) return;
       any = true;
+      var ytId = getYouTubeId(src);
       var card = document.createElement('button');
       card.type = 'button';
       card.className = 'project-card';
-      var vid = document.createElement('video');
-      vid.src = src;
-      vid.muted = true;
-      vid.preload = 'metadata';
-      vid.playsInline = true;
-      vid.oncontextmenu = function(){ return false; };
+      if (ytId) {
+        var thumb = document.createElement('img');
+        thumb.src = 'https://img.youtube.com/vi/' + ytId + '/hqdefault.jpg';
+        thumb.alt = getTitle(p);
+        protectImage(thumb);
+        card.appendChild(thumb);
+      } else {
+        var vid = document.createElement('video');
+        vid.src = src;
+        vid.muted = true;
+        vid.preload = 'metadata';
+        vid.playsInline = true;
+        vid.oncontextmenu = function(){ return false; };
+        card.appendChild(vid);
+      }
       var play = document.createElement('span');
       play.className = 'play-badge';
       play.innerHTML = '&#9658;';
-      card.appendChild(vid);
       card.appendChild(play);
       card.addEventListener('click', function(){ openVideoLightbox(p, src); });
       grid.appendChild(card);
@@ -500,16 +518,31 @@ function openVideoLightbox(project, src){
   var desc = getDesc(project);
   document.getElementById('vlDesc').textContent = desc || '';
   document.getElementById('vlDesc').style.display = desc ? '' : 'none';
-  vlVideoEl.src = src;
+
+  var ytId = getYouTubeId(src);
+  if (ytId) {
+    vlVideoEl.pause();
+    vlVideoEl.removeAttribute('src');
+    vlVideoEl.style.display = 'none';
+    vlYoutubeEl.style.display = '';
+    vlYoutubeEl.src = 'https://www.youtube.com/embed/' + ytId + '?autoplay=1&rel=0';
+  } else {
+    vlYoutubeEl.style.display = 'none';
+    vlYoutubeEl.src = '';
+    vlVideoEl.style.display = '';
+    vlVideoEl.src = src;
+    vlVideoEl.play().catch(function(){});
+  }
+
   videoLightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
-  vlVideoEl.play().catch(function(){});
 }
 
 function closeVideoLightbox(){
   vlVideoEl.pause();
   vlVideoEl.removeAttribute('src');
   vlVideoEl.load();
+  vlYoutubeEl.src = '';
   videoLightbox.classList.remove('open');
   document.body.style.overflow = '';
 }
