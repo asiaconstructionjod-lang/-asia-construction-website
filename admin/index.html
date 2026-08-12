@@ -22,11 +22,12 @@
     <button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>
     <nav class="main-nav" id="mainNav">
       <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#work">Our Work</a></li>
-        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#work" data-i18n="nav_work">Our Work</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact Us</a></li>
+        <li><button type="button" class="lang-switch" id="langToggle">AR</button></li>
       </ul>
     </nav>
   </div>
@@ -34,12 +35,12 @@
 
 <section class="hero" id="home">
   <div class="container">
-    <span class="eyebrow">Construction &middot; Engineering &middot; Design</span>
+    <span class="eyebrow" data-i18n="hero_eyebrow">Construction &middot; Engineering &middot; Design</span>
     <h1 id="heroTitle">Construct Your Dream</h1>
     <p class="lead" id="heroSubtitle">"Asia Construction, where the realms of construction, engineering, interior design, architecture, and cutting-edge technology converge."</p>
     <div class="hero-actions">
-      <a href="#work" class="btn">View Our Work</a>
-      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <a href="#work" class="btn" data-i18n="hero_btn_work">View Our Work</a>
+      <a href="#contact" class="btn btn-outline" data-i18n="hero_btn_contact">Get In Touch</a>
     </div>
   </div>
 </section>
@@ -47,8 +48,8 @@
 <section id="about">
   <div class="container two-col">
     <div>
-      <span class="eyebrow">About Us</span>
-      <h2>Building spaces that meet the highest standards</h2>
+      <span class="eyebrow" data-i18n="about_eyebrow">About Us</span>
+      <h2 data-i18n="about_heading">Building spaces that meet the highest standards</h2>
       <p id="aboutText">ASIA construction firm was founded to develop architecture concepts that drive the evolution of built environments.</p>
     </div>
     <div>
@@ -60,34 +61,34 @@
 <section class="alt" id="services">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow">What We Do</span>
-      <h2>Our Services</h2>
+      <span class="eyebrow" data-i18n="services_eyebrow">What We Do</span>
+      <h2 data-i18n="services_heading">Our Services</h2>
     </div>
     <div class="card-grid">
       <div class="service-card">
         <img src="https://static.wixstatic.com/media/72c04b_c8bb90498044473692497721872aee1d~mv2.png" alt="BIM Coordination">
-        <h3>BIM Coordination</h3>
-        <p>Coordinating the process of bringing together BIM models across disciplines and resolving any conflicts that occur between them.</p>
+        <h3 data-i18n="svc1_title">BIM Coordination</h3>
+        <p data-i18n="svc1_desc">Coordinating the process of bringing together BIM models across disciplines and resolving any conflicts that occur between them.</p>
       </div>
       <div class="service-card">
         <img src="https://static.wixstatic.com/media/72c04b_59f499bcfa784257917a5849f182046f~mv2.png" alt="Architecture">
-        <h3>Architecture</h3>
-        <p>Designing architectural spaces that focus on meeting needs and demands with the highest quality.</p>
+        <h3 data-i18n="svc2_title">Architecture</h3>
+        <p data-i18n="svc2_desc">Designing architectural spaces that focus on meeting needs and demands with the highest quality.</p>
       </div>
       <div class="service-card">
         <img src="https://static.wixstatic.com/media/72c04b_d611be633c7b40a78dc967404673b9df~mv2.png" alt="Interior Design">
-        <h3>Interior Design</h3>
-        <p>Understanding people's behavior to create spaces that are aesthetically pleasing, using local materials.</p>
+        <h3 data-i18n="svc3_title">Interior Design</h3>
+        <p data-i18n="svc3_desc">Understanding people's behavior to create spaces that are aesthetically pleasing, using local materials.</p>
       </div>
       <div class="service-card">
         <img src="https://static.wixstatic.com/media/72c04b_5a03fbec6db64c4ea0e8c7f2b566c52f~mv2.png" alt="Landscape">
-        <h3>Landscape</h3>
-        <p>Designing and arranging outdoor elements to create natural spaces — seating areas, water features, greenery, and more.</p>
+        <h3 data-i18n="svc4_title">Landscape</h3>
+        <p data-i18n="svc4_desc">Designing and arranging outdoor elements to create natural spaces — seating areas, water features, greenery, and more.</p>
       </div>
       <div class="service-card">
         <img src="https://static.wixstatic.com/media/72c04b_18c395243bba467f9b669a870da32f8a~mv2.png" alt="Engineering Management">
-        <h3>Engineering Management</h3>
-        <p>Managing and implementing projects with the highest quality, the shortest time, and the lowest possible price.</p>
+        <h3 data-i18n="svc5_title">Engineering Management</h3>
+        <p data-i18n="svc5_desc">Managing and implementing projects with the highest quality, the shortest time, and the lowest possible price.</p>
       </div>
     </div>
   </div>
@@ -96,17 +97,17 @@
 <section id="work">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow">Our Work</span>
-      <h2>أعمالنا</h2>
+      <span class="eyebrow" data-i18n="work_eyebrow">Our Work</span>
+      <h2 data-i18n="work_heading">Our Work</h2>
     </div>
     <div class="work-group">
-      <h3 class="work-group-title">معماري</h3>
+      <h3 class="work-group-title" data-i18n="work_architectural">Architectural</h3>
       <div class="project-grid" id="gridArchitectural">
         <!-- populated by JS from content/projects.json -->
       </div>
     </div>
     <div class="work-group">
-      <h3 class="work-group-title">داخلي</h3>
+      <h3 class="work-group-title" data-i18n="work_interior">Interior</h3>
       <div class="project-grid" id="gridInterior">
         <!-- populated by JS from content/projects.json -->
       </div>
@@ -136,36 +137,36 @@
 <section class="alt" id="contact">
   <div class="container">
     <div class="section-head center">
-      <span class="eyebrow">Get In Touch</span>
-      <h2>Contact Us</h2>
+      <span class="eyebrow" data-i18n="contact_eyebrow">Get In Touch</span>
+      <h2 data-i18n="contact_heading">Contact Us</h2>
     </div>
     <div class="contact-grid">
       <div>
         <div class="info-row">
           <div class="ico">&#9742;</div>
           <div>
-            <h4>Phone</h4>
+            <h4 data-i18n="contact_phone_label">Phone</h4>
             <p><a id="phoneLink" href="#">+962 79 108 0073</a></p>
           </div>
         </div>
         <div class="info-row">
           <div class="ico">&#9993;</div>
           <div>
-            <h4>Email</h4>
+            <h4 data-i18n="contact_email_label">Email</h4>
             <p><a id="emailLink" href="#">hmqudah@asiaconstructionjo.com</a></p>
           </div>
         </div>
         <div class="info-row">
           <div class="ico">&#8962;</div>
           <div>
-            <h4>Address</h4>
+            <h4 data-i18n="contact_address_label">Address</h4>
             <p id="addressText">Jordan &ndash; Irbid &ndash; Wasfi Al-Tall St &ndash; AlMaha Complex, 2nd Floor &ndash; Office 205</p>
           </div>
         </div>
         <div class="info-row">
           <div class="ico">&#9737;</div>
           <div>
-            <h4>Follow Us</h4>
+            <h4 data-i18n="contact_follow_label">Follow Us</h4>
             <p>
               <a id="fbLink" href="#" target="_blank" rel="noopener">Facebook</a>
               &nbsp;&middot;&nbsp;
@@ -184,17 +185,17 @@
         <form class="contact-form" action="https://formsubmit.co/hmqudah@asiaconstructionjo.com" method="POST">
           <input type="hidden" name="_subject" value="New message from asiaconstructionjo.com">
           <input type="hidden" name="_captcha" value="false">
-          <label for="name">Full Name</label>
+          <label for="name" data-i18n="form_name">Full Name</label>
           <input type="text" id="name" name="Name" required>
-          <label for="phone">Phone</label>
+          <label for="phone" data-i18n="form_phone">Phone</label>
           <input type="tel" id="phone" name="Phone" required>
-          <label for="email">Email</label>
+          <label for="email" data-i18n="form_email">Email</label>
           <input type="email" id="email" name="Email" required>
-          <label for="message">Message</label>
+          <label for="message" data-i18n="form_message">Message</label>
           <textarea id="message" name="Message" required></textarea>
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" class="btn" data-i18n="form_submit">Send Message</button>
         </form>
-        <p style="font-size:.8rem;margin-top:10px;">First submission will ask you to confirm your email once &mdash; that activates the form.</p>
+        <p style="font-size:.8rem;margin-top:10px;" data-i18n="form_note">First submission will ask you to confirm your email once &mdash; that activates the form.</p>
       </div>
     </div>
   </div>
@@ -205,23 +206,23 @@
     <div class="footer-grid">
       <div>
         <h4 id="footerCompany">Asia Construction</h4>
-        <p style="color:#b8b8b8;font-size:.9rem;max-width:320px;">Construction, engineering, interior design, architecture and technology — under one roof.</p>
+        <p style="color:#b8b8b8;font-size:.9rem;max-width:320px;" data-i18n="footer_tagline">Construction, engineering, interior design, architecture and technology — under one roof.</p>
         <div class="social-row">
           <a id="fbIcon" href="#" target="_blank" rel="noopener">f</a>
           <a id="igIcon" href="#" target="_blank" rel="noopener">ig</a>
         </div>
       </div>
       <div>
-        <h4>Quick Links</h4>
+        <h4 data-i18n="footer_quicklinks">Quick Links</h4>
         <ul>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#work">Our Work</a></li>
-          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#work" data-i18n="nav_work">Our Work</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact Us</a></li>
         </ul>
       </div>
       <div>
-        <h4>Contact</h4>
+        <h4 data-i18n="footer_contact_heading">Contact</h4>
         <ul id="footerContact">
           <li>+962 79 108 0073</li>
           <li>Wasfi Al-Tall St, AlMaha Complex, Irbid, Jordan</li>
@@ -230,8 +231,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>&copy; 2026 Asia Construction. All rights reserved.</span>
-      <span>Irbid, Jordan</span>
+      <span><span id="footerYear">2026</span> <span id="footerCompany2">Asia Construction</span>. <span data-i18n="footer_rights">All rights reserved.</span></span>
+      <span data-i18n="footer_location">Irbid, Jordan</span>
     </div>
   </div>
 </footer>
@@ -241,17 +242,105 @@ document.getElementById('navToggle').addEventListener('click', function(){
   document.getElementById('mainNav').classList.toggle('open');
 });
 
+// ---- i18n: static UI text ----
+var translations = {
+  en: {
+    nav_home: "Home", nav_about: "About Us", nav_services: "Services", nav_work: "Our Work", nav_contact: "Contact Us",
+    hero_eyebrow: "Construction · Engineering · Design",
+    hero_btn_work: "View Our Work", hero_btn_contact: "Get In Touch",
+    about_eyebrow: "About Us", about_heading: "Building spaces that meet the highest standards",
+    services_eyebrow: "What We Do", services_heading: "Our Services",
+    svc1_title: "BIM Coordination", svc1_desc: "Coordinating the process of bringing together BIM models across disciplines and resolving any conflicts that occur between them.",
+    svc2_title: "Architecture", svc2_desc: "Designing architectural spaces that focus on meeting needs and demands with the highest quality.",
+    svc3_title: "Interior Design", svc3_desc: "Understanding people's behavior to create spaces that are aesthetically pleasing, using local materials.",
+    svc4_title: "Landscape", svc4_desc: "Designing and arranging outdoor elements to create natural spaces — seating areas, water features, greenery, and more.",
+    svc5_title: "Engineering Management", svc5_desc: "Managing and implementing projects with the highest quality, the shortest time, and the lowest possible price.",
+    work_eyebrow: "Our Work", work_heading: "Our Work", work_architectural: "Architectural", work_interior: "Interior",
+    contact_eyebrow: "Get In Touch", contact_heading: "Contact Us",
+    contact_phone_label: "Phone", contact_email_label: "Email", contact_address_label: "Address", contact_follow_label: "Follow Us",
+    form_name: "Full Name", form_phone: "Phone", form_email: "Email", form_message: "Message", form_submit: "Send Message",
+    form_note: "First submission will ask you to confirm your email once — that activates the form.",
+    footer_tagline: "Construction, engineering, interior design, architecture and technology — under one roof.",
+    footer_quicklinks: "Quick Links", footer_contact_heading: "Contact", footer_rights: "All rights reserved.", footer_location: "Irbid, Jordan",
+    lb_interior: "Interior", lb_architectural: "Architectural"
+  },
+  ar: {
+    nav_home: "الرئيسية", nav_about: "من نحن", nav_services: "خدماتنا", nav_work: "أعمالنا", nav_contact: "تواصل معنا",
+    hero_eyebrow: "إنشاءات · هندسة · تصميم",
+    hero_btn_work: "شاهد أعمالنا", hero_btn_contact: "تواصل معنا",
+    about_eyebrow: "من نحن", about_heading: "نبني مساحات تحقق أعلى المعايير",
+    services_eyebrow: "خدماتنا", services_heading: "خدماتنا",
+    svc1_title: "تنسيق BIM", svc1_desc: "تنسيق دمج نماذج BIM بين مختلف التخصصات وحل أي تعارضات تحدث بينها.",
+    svc2_title: "العمارة", svc2_desc: "تصميم مساحات معمارية تركز على تلبية الاحتياجات والمتطلبات بأعلى جودة.",
+    svc3_title: "التصميم الداخلي", svc3_desc: "فهم سلوك الأفراد لخلق مساحات جذابة بصرياً باستخدام مواد محلية.",
+    svc4_title: "لاندسكيب", svc4_desc: "تصميم وترتيب العناصر الخارجية لخلق مساحات طبيعية — مناطق جلوس، عناصر مائية، مساحات خضراء، وغيرها.",
+    svc5_title: "إدارة هندسية", svc5_desc: "إدارة وتنفيذ المشاريع بأعلى جودة، وبأقصر وقت، وبأقل تكلفة ممكنة.",
+    work_eyebrow: "أعمالنا", work_heading: "أعمالنا", work_architectural: "معماري", work_interior: "داخلي",
+    contact_eyebrow: "تواصل معنا", contact_heading: "تواصل معنا",
+    contact_phone_label: "الهاتف", contact_email_label: "البريد الإلكتروني", contact_address_label: "العنوان", contact_follow_label: "تابعونا",
+    form_name: "الاسم الكامل", form_phone: "رقم الهاتف", form_email: "البريد الإلكتروني", form_message: "الرسالة", form_submit: "إرسال الرسالة",
+    form_note: "أول رسالة بترسليها رح تطلب منك تأكيد إيميلك مرة وحدة — هيك بتتفعّل خدمة الإرسال.",
+    footer_tagline: "إنشاءات، هندسة، تصميم داخلي، عمارة، وتكنولوجيا — تحت سقف واحد.",
+    footer_quicklinks: "روابط سريعة", footer_contact_heading: "تواصل", footer_rights: "جميع الحقوق محفوظة.", footer_location: "إربد، الأردن",
+    lb_interior: "داخلي", lb_architectural: "معماري"
+  }
+};
+
+var currentLang = localStorage.getItem('lang') || 'en';
+var siteData = null;
+var currentLightboxProject = null;
+
+function t(key){
+  return (translations[currentLang] && translations[currentLang][key]) || translations.en[key] || key;
+}
+
+function applyStaticTranslations(){
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    el.textContent = t(el.getAttribute('data-i18n'));
+  });
+  document.getElementById('langToggle').textContent = currentLang === 'en' ? 'AR' : 'EN';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+}
+
+function applySiteContent(){
+  if (!siteData) return;
+  var site = siteData;
+  var ar = currentLang === 'ar';
+  document.getElementById('heroTitle').textContent = (ar && site.heroTitle_ar) ? site.heroTitle_ar : site.heroTitle;
+  document.getElementById('heroSubtitle').textContent = (ar && site.heroSubtitle_ar) ? site.heroSubtitle_ar : site.heroSubtitle;
+  document.getElementById('aboutText').textContent = (ar && site.aboutText_ar) ? site.aboutText_ar : site.aboutText;
+  var addr = (ar && site.address_ar) ? site.address_ar : site.address;
+  document.getElementById('addressText').textContent = addr;
+
+  document.getElementById('footerContact').innerHTML =
+    '<li>' + site.phone + '</li>' +
+    '<li>' + addr + '</li>' +
+    '<li>' + site.email + '</li>';
+}
+
+function setLanguage(lang){
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  applyStaticTranslations();
+  applySiteContent();
+  renderProjects();
+  if (currentLightboxProject) openLightbox(currentLightboxProject);
+}
+
+document.getElementById('langToggle').addEventListener('click', function(){
+  setLanguage(currentLang === 'en' ? 'ar' : 'en');
+});
+
 // ---- Load editable content from /content/site.json ----
 fetch('content/site.json').then(r => r.json()).then(site => {
+  siteData = site;
   document.getElementById('logoImg').src = site.logo;
   document.getElementById('favicon').href = site.logo;
   document.getElementById('companyEn').textContent = site.companyNameEn;
   document.getElementById('companyAr').textContent = site.companyNameAr;
   document.getElementById('footerCompany').textContent = site.companyNameEn;
-  document.getElementById('heroTitle').textContent = site.heroTitle;
-  document.getElementById('heroSubtitle').textContent = site.heroSubtitle;
-  document.getElementById('aboutText').textContent = site.aboutText;
-  document.getElementById('addressText').textContent = site.address;
+  document.getElementById('footerCompany2').textContent = site.companyNameEn;
 
   var phoneLink = document.getElementById('phoneLink');
   phoneLink.textContent = site.phone;
@@ -270,10 +359,8 @@ fetch('content/site.json').then(r => r.json()).then(site => {
     document.getElementById('igIcon').href = site.instagram;
   }
 
-  document.getElementById('footerContact').innerHTML =
-    '<li>' + site.phone + '</li>' +
-    '<li>' + site.address + '</li>' +
-    '<li>' + site.email + '</li>';
+  document.getElementById('footerYear').textContent = new Date().getFullYear();
+  applySiteContent();
 }).catch(e => console.error('Could not load site.json', e));
 
 // ---- Load projects from /content/projects.json ----
@@ -288,6 +375,13 @@ function getImages(p){
   if (Array.isArray(p.images) && p.images.length) return p.images;
   if (p.image) return [p.image];
   return [];
+}
+
+function getTitle(p){
+  return (currentLang === 'ar' && p.title_ar) ? p.title_ar : p.title;
+}
+function getDesc(p){
+  return (currentLang === 'ar' && p.description_ar) ? p.description_ar : p.description;
 }
 
 // Blocks right-click save and drag-to-save on an <img>. Deters casual
@@ -309,7 +403,7 @@ function renderGroup(gridId, category){
     card.className = 'project-card';
     var img = document.createElement('img');
     img.src = imgs[0] || '';
-    img.alt = p.title;
+    img.alt = getTitle(p);
     protectImage(img);
     card.appendChild(img);
     card.addEventListener('click', function(){ openLightbox(p); });
@@ -329,12 +423,14 @@ var lightbox = document.getElementById('lightbox');
 protectImage(document.getElementById('lbImage'));
 
 function openLightbox(project){
+  currentLightboxProject = project;
   lbImages = getImages(project);
   lbIndex = 0;
-  document.getElementById('lbTitle').textContent = project.title;
-  document.getElementById('lbTag').textContent = project.category === 'interior' ? 'داخلي' : 'معماري';
-  document.getElementById('lbDesc').textContent = project.description || '';
-  document.getElementById('lbDesc').style.display = project.description ? '' : 'none';
+  document.getElementById('lbTitle').textContent = getTitle(project);
+  document.getElementById('lbTag').textContent = project.category === 'interior' ? t('lb_interior') : t('lb_architectural');
+  var desc = getDesc(project);
+  document.getElementById('lbDesc').textContent = desc || '';
+  document.getElementById('lbDesc').style.display = desc ? '' : 'none';
 
   var thumbs = document.getElementById('lbThumbs');
   thumbs.innerHTML = '';
@@ -367,6 +463,7 @@ function showImage(i){
 function closeLightbox(){
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
+  currentLightboxProject = null;
 }
 
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
@@ -379,6 +476,9 @@ document.addEventListener('keydown', function(e){
   if (e.key === 'ArrowLeft') showImage(lbIndex - 1);
   if (e.key === 'ArrowRight') showImage(lbIndex + 1);
 });
+
+// Initial paint of static text (before fetches resolve)
+applyStaticTranslations();
 </script>
 </body>
 </html>
