@@ -1,5 +1,6 @@
 {
   "logo": "https://static.wixstatic.com/media/72c04b_81f704ff37f24e1194588945621e15ef~mv2.png",
+  "heroImage": "https://static.wixstatic.com/media/72c04b_1efe13c975074d80a999b5b9e6ef36f6~mv2.png",
   "companyNameAr": "شركة آسيا للإنشاءات",
   "companyNameEn": "Asia Construction",
   "heroTitle": "Construct Your Dream",
@@ -13,5 +14,6 @@
   "address": "Jordan - Irbid - Wasfi Al-Tall St - AlMaha Complex, 2nd Floor - Office 205",
   "address_ar": "الأردن - إربد - شارع وصفي التل - مجمع المها، الطابق الثاني - مكتب 205",
   "facebook": "https://www.facebook.com/asiaconstruction.jordan",
-  "instagram": "https://www.instagram.com/asiaccjo/"
+  "instagram": "https://www.instagram.com/asiaccjo/",
+  "aboutImage": "https://static.wixstatic.com/media/72c04b_dc24e8c71d6d491b868b0b94d23fe83f~mv2.png"
 }
