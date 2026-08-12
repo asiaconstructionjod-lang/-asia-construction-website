@@ -25,7 +25,7 @@ auth:
 # Better Decap + Bridge logo (optional)
 logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 # Add site links in Decap CMS (optional)
-site_url: https://teal-eclair-e45f87.netlify.app
+site_url: https://asia-construction.web.app
 
 media_folder: "uploads"
 public_folder: "/uploads"
