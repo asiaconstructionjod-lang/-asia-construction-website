@@ -1,3 +1,18 @@
 {
-  "items": []
+  "items": [
+    {
+      "title": "A002",
+      "title_ar": "A002",
+      "category": "architectural",
+      "images": [
+        "/uploads/photo_2024-05-13_20-48-19.jpg",
+        "/uploads/photo_2024-05-13_20-48-17.jpg",
+        "/uploads/photo_2024-05-13_20-48-14.jpg"
+      ],
+      "videos": [
+        "https://youtube.com/shorts/PH95X7oqMqc"
+      ],
+      "description": "Irbid - Jordan"
+    }
+  ]
 }
