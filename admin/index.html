@@ -1,12 +1,91 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لوحة تحكم موقع Asia Construction</title>
-  </head>
-  <body>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
-</html>
+# Use DecapBridge PKCE auth (required)
+backend:
+  name: git-gateway
+  repo: asiaconstructionjod-lang/-asia-construction-website
+  branch: main
+  auth_type: pkce
+  base_url: https://auth.decapbridge.com
+  auth_endpoint: /sites/7fbb2ce0-4a1b-4dd7-be16-7f0ac1ab7bed/pkce
+  auth_token_endpoint: /sites/7fbb2ce0-4a1b-4dd7-be16-7f0ac1ab7bed/token
+  gateway_url: https://gateway.decapbridge.com
+  # See who did what (optional)
+  commit_messages:
+    create: Create {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} "{{slug}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete "{{path}}" - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
+# Enable PKCE fields (optional, recommended)
+auth:
+  email_claim: email
+  first_name_claim: first_name
+  last_name_claim: last_name
+  avatar_url_claim: avatar_url
+# Better Decap + Bridge logo (optional)
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
+# Add site links in Decap CMS (optional)
+site_url: https://teal-eclair-e45f87.netlify.app
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "ar"
+
+collections:
+  - name: "settings"
+    label: "إعدادات الموقع"
+    files:
+      - file: "content/site.json"
+        label: "معلومات عامة"
+        name: "site"
+        fields:
+          - { label: "اللوجو", name: "logo", widget: "image" }
+          - { label: "صورة خلفية البانر الرئيسي", name: "heroImage", widget: "image" }
+          - { label: "اسم الشركة (عربي)", name: "companyNameAr", widget: "string" }
+          - { label: "اسم الشركة (إنجليزي)", name: "companyNameEn", widget: "string" }
+          - { label: "عنوان البانر الرئيسي (إنجليزي)", name: "heroTitle", widget: "string" }
+          - { label: "عنوان البانر الرئيسي (عربي)", name: "heroTitle_ar", widget: "string" }
+          - { label: "وصف البانر الرئيسي (إنجليزي)", name: "heroSubtitle", widget: "text" }
+          - { label: "وصف البانر الرئيسي (عربي)", name: "heroSubtitle_ar", widget: "text" }
+          - { label: "نبذة عنا (إنجليزي)", name: "aboutText", widget: "text" }
+          - { label: "نبذة عنا (عربي)", name: "aboutText_ar", widget: "text" }
+          - { label: "رقم الهاتف", name: "phone", widget: "string" }
+          - { label: "البريد الإلكتروني", name: "email", widget: "string" }
+          - { label: "العنوان (إنجليزي)", name: "address", widget: "text" }
+          - { label: "العنوان (عربي)", name: "address_ar", widget: "text" }
+          - { label: "رابط فيسبوك", name: "facebook", widget: "string", required: false }
+          - { label: "رابط انستغرام", name: "instagram", widget: "string", required: false }
+
+  - name: "projects"
+    label: "أعمالنا"
+    files:
+      - file: "content/projects.json"
+        label: "قائمة المشاريع"
+        name: "projects"
+        fields:
+          - label: "المشاريع"
+            name: "items"
+            widget: "list"
+            summary: "{{title}} ({{category}})"
+            fields:
+              - { label: "اسم المشروع (إنجليزي)", name: "title", widget: "string" }
+              - { label: "اسم المشروع (عربي)", name: "title_ar", widget: "string", required: false }
+              - label: "التصنيف"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "داخلي", value: "interior" }
+                  - { label: "معماري", value: "architectural" }
+              - label: "صور المشروع"
+                name: "images"
+                widget: "list"
+                field: { label: "صورة", name: "image", widget: "image" }
+              - label: "فيديوهات المشروع (روابط)"
+                name: "videos"
+                widget: "list"
+                required: false
+                hint: "فيديو كبير (أكثر من 25 ميغا)؟ ارفعيه على يوتيوب (Unlisted) والصقي رابط اليوتيوب هون. فيديو صغير؟ ارفعيه على GitHub والصقي رابط الملف هون."
+                field: { label: "رابط الفيديو", name: "video", widget: "string" }
+              - { label: "وصف مختصر (إنجليزي)", name: "description", widget: "text", required: false }
+              - { label: "وصف مختصر (عربي)", name: "description_ar", widget: "text", required: false }
