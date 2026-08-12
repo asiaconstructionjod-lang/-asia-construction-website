@@ -81,10 +81,11 @@ collections:
                 name: "images"
                 widget: "list"
                 field: { label: "صورة", name: "image", widget: "image" }
-              - label: "فيديوهات المشروع (ريلز)"
+              - label: "فيديوهات المشروع (روابط)"
                 name: "videos"
                 widget: "list"
                 required: false
-                field: { label: "فيديو", name: "video", widget: "file" }
+                hint: "فيديو كبير (أكثر من 25 ميغا)؟ ارفعيه على يوتيوب (Unlisted) والصقي رابط اليوتيوب هون. فيديو صغير؟ ارفعيه على GitHub والصقي رابط الملف هون."
+                field: { label: "رابط الفيديو", name: "video", widget: "string" }
               - { label: "وصف مختصر (إنجليزي)", name: "description", widget: "text", required: false }
               - { label: "وصف مختصر (عربي)", name: "description_ar", widget: "text", required: false }
