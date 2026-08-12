@@ -42,6 +42,7 @@ collections:
         fields:
           - { label: "اللوجو", name: "logo", widget: "image" }
           - { label: "صورة خلفية البانر الرئيسي", name: "heroImage", widget: "image" }
+          - { label: "صورة قسم (من نحن)", name: "aboutImage", widget: "image" }
           - { label: "اسم الشركة (عربي)", name: "companyNameAr", widget: "string" }
           - { label: "اسم الشركة (إنجليزي)", name: "companyNameEn", widget: "string" }
           - { label: "عنوان البانر الرئيسي (إنجليزي)", name: "heroTitle", widget: "string" }
