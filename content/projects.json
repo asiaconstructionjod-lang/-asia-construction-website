@@ -24,6 +24,33 @@
         "/uploads/photo_36_2024-10-31_15-50-30.jpg",
         "/uploads/photo_6_2024-10-31_15-50-30.jpg"
       ]
+    },
+    {
+      "title": "A001",
+      "title_ar": "A001",
+      "category": "architectural",
+      "images": [
+        "/uploads/photo_2024-01-28_15-37-34-2-.jpg",
+        "/uploads/photo_2024-01-28_13-53-17.jpg",
+        "/uploads/photo_5886494202815168202_y.jpg"
+      ],
+      "videos": [
+        "https://youtube.com/shorts/fIab5ROV_rQ"
+      ]
+    },
+    {
+      "title": "A001",
+      "title_ar": "A001",
+      "category": "interior",
+      "images": [
+        "/uploads/photo_5886494202815168213_y.jpg",
+        "/uploads/photo_2024-01-28_15-37-33.jpg",
+        "/uploads/photo_2024-01-28_15-37-33.jpg",
+        "/uploads/photo_5886494202815168182_y.jpg"
+      ],
+      "videos": [
+        "https://youtu.be/lHSt1Rn-jw8"
+      ]
     }
   ]
 }
