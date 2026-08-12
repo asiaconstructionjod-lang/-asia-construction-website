@@ -71,6 +71,24 @@
         "/uploads/court-2-.png",
         "/uploads/master-3-.png"
       ]
+    },
+    {
+      "title": "A004",
+      "title_ar": "A004",
+      "category": "architectural",
+      "images": [
+        "/uploads/1-2-.png",
+        "/uploads/1-4-.png",
+        "/uploads/1-6-.png"
+      ]
+    },
+    {
+      "title": "A004",
+      "title_ar": "A004",
+      "category": "interior",
+      "images": [
+        "/uploads/1_3.png"
+      ]
     }
   ]
 }
