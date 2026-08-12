@@ -61,6 +61,16 @@
         "/uploads/1_2.png",
         "/uploads/1.png"
       ]
+    },
+    {
+      "title": "A003",
+      "title_ar": "A003",
+      "category": "interior",
+      "images": [
+        "/uploads/court-3-.png",
+        "/uploads/court-2-.png",
+        "/uploads/master-3-.png"
+      ]
     }
   ]
 }
