@@ -51,6 +51,16 @@
       "videos": [
         "https://youtu.be/lHSt1Rn-jw8"
       ]
+    },
+    {
+      "title": "A003",
+      "title_ar": "A003",
+      "category": "architectural",
+      "images": [
+        "/uploads/1_3.png",
+        "/uploads/1_2.png",
+        "/uploads/1.png"
+      ]
     }
   ]
 }
