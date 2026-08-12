@@ -374,6 +374,9 @@ fetch('content/site.json').then(r => r.json()).then(site => {
   if (site.heroImage) {
     document.getElementById('home').style.backgroundImage =
       "linear-gradient(180deg, rgba(10,10,10,.72), rgba(10,10,10,.85)), url('" + site.heroImage + "')";
+    if (site.aboutImage) {
+    document.getElementById('aboutImg').src = site.aboutImage;
+  }
   }
   document.getElementById('companyEn').textContent = site.companyNameEn;
   document.getElementById('companyAr').textContent = site.companyNameAr;
