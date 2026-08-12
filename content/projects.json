@@ -13,6 +13,17 @@
         "https://youtube.com/shorts/PH95X7oqMqc"
       ],
       "description": "Irbid - Jordan"
+    },
+    {
+      "title": "A002",
+      "title_ar": "A002",
+      "category": "interior",
+      "images": [
+        "/uploads/photo_32_2024-10-31_15-50-30.jpg",
+        "/uploads/photo_7_2024-10-31_16-18-09.jpg",
+        "/uploads/photo_36_2024-10-31_15-50-30.jpg",
+        "/uploads/photo_6_2024-10-31_15-50-30.jpg"
+      ]
     }
   ]
 }
