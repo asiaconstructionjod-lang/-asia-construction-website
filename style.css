@@ -68,7 +68,8 @@ nav.main-nav a:hover,nav.main-nav a.active{background:var(--black);color:var(--w
 
 /* Hero */
 .hero{
-  position:relative;min-height:80vh;display:flex;align-items:center;
+  position:relative;display:flex;align-items:center;
+  padding:100px 0 84px;
   background:linear-gradient(180deg, rgba(10,10,10,.72), rgba(10,10,10,.85)), #111;
   background-size:cover;background-position:center;color:var(--white);
 }
@@ -115,6 +116,15 @@ section.alt{background:var(--gray-1);}
   -webkit-user-select:none;user-select:none;-webkit-user-drag:none;pointer-events:none;
 }
 .project-card:hover img{transform:scale(1.06);}
+.project-card video{
+  width:100%;height:100%;object-fit:cover;
+  -webkit-user-select:none;user-select:none;pointer-events:none;
+}
+.play-badge{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:52px;height:52px;border-radius:50%;background:rgba(10,10,10,.72);color:var(--white);
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;padding-left:4px;
+}
 
 /* Lightbox / Gallery modal */
 .lightbox-overlay{
