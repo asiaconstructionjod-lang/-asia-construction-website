@@ -1,0 +1,70 @@
+{
+  "items": [
+    {
+      "title": "Private Villa — Exterior",
+      "category": "architectural",
+      "image": "https://static.wixstatic.com/media/72c04b_1efe13c975074d80a999b5b9e6ef36f6~mv2.png",
+      "description": "Modern private villa exterior design."
+    },
+    {
+      "title": "Private Villa",
+      "category": "architectural",
+      "image": "https://static.wixstatic.com/media/72c04b_4f171067cc514b209c8d6463e35568d3~mv2.png",
+      "description": "Private villa architectural design."
+    },
+    {
+      "title": "Private Villa",
+      "category": "architectural",
+      "image": "https://static.wixstatic.com/media/72c04b_4f2313bd1170472fab8b9a3cbfb9e375~mv2.png",
+      "description": "Private villa architectural design."
+    },
+    {
+      "title": "Living Area Interior",
+      "category": "interior",
+      "image": "https://static.wixstatic.com/media/72c04b_984b869ee9204b5b98499657f9b80b97~mv2.jpeg",
+      "description": "Residential living area interior design."
+    },
+    {
+      "title": "Al Karmi Fashion",
+      "category": "interior",
+      "image": "https://static.wixstatic.com/media/72c04b_0535b8acd05a4dac9bc61f22bb690b3f~mv2.jpg",
+      "description": "A refined retail interior blending minimal design with a sense of luxury."
+    },
+    {
+      "title": "Restaurant",
+      "category": "interior",
+      "image": "https://static.wixstatic.com/media/72c04b_ed7d7250035b43b489c32765847b797f~mv2.png",
+      "description": "Restaurant interior design."
+    },
+    {
+      "title": "Clinic",
+      "category": "interior",
+      "image": "https://static.wixstatic.com/media/72c04b_513966ef07a1433997fde2a6d349cbf8~mv2.png",
+      "description": "Clinic interior fit-out."
+    },
+    {
+      "title": "Clothes Shop",
+      "category": "interior",
+      "image": "https://static.wixstatic.com/media/72c04b_16c5496952aa4948a1896e4814bd63e4~mv2.png",
+      "description": "Retail interior design."
+    },
+    {
+      "title": "Study House",
+      "category": "interior",
+      "image": "https://static.wixstatic.com/media/72c04b_dac9885f09db445a984c1fca0355ea19~mv2.png",
+      "description": "Study house interior design."
+    },
+    {
+      "title": "Landscape Design",
+      "category": "architectural",
+      "image": "https://static.wixstatic.com/media/72c04b_aed8411531a74f44b7bf38d30aa8f10f~mv2.png",
+      "description": "Integrated landscape design balancing hardscape and softscape elements."
+    },
+    {
+      "title": "Pergola & Outdoor Seating",
+      "category": "architectural",
+      "image": "https://static.wixstatic.com/media/72c04b_e356d1d4454d4392968e3140f87adf54~mv2.jpeg",
+      "description": "Modern landscape design with pergola and structured seating area."
+    }
+  ]
+}

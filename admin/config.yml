@@ -1,0 +1,50 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "ar"
+
+collections:
+  - name: "settings"
+    label: "إعدادات الموقع"
+    files:
+      - file: "content/site.json"
+        label: "معلومات عامة"
+        name: "site"
+        fields:
+          - { label: "اللوجو", name: "logo", widget: "image" }
+          - { label: "اسم الشركة (عربي)", name: "companyNameAr", widget: "string" }
+          - { label: "اسم الشركة (إنجليزي)", name: "companyNameEn", widget: "string" }
+          - { label: "عنوان البانر الرئيسي", name: "heroTitle", widget: "string" }
+          - { label: "وصف البانر الرئيسي", name: "heroSubtitle", widget: "text" }
+          - { label: "نبذة عنا", name: "aboutText", widget: "text" }
+          - { label: "رقم الهاتف", name: "phone", widget: "string" }
+          - { label: "البريد الإلكتروني", name: "email", widget: "string" }
+          - { label: "العنوان", name: "address", widget: "text" }
+          - { label: "رابط فيسبوك", name: "facebook", widget: "string", required: false }
+          - { label: "رابط انستغرام", name: "instagram", widget: "string", required: false }
+
+  - name: "projects"
+    label: "أعمالنا"
+    files:
+      - file: "content/projects.json"
+        label: "قائمة المشاريع"
+        name: "projects"
+        fields:
+          - label: "المشاريع"
+            name: "items"
+            widget: "list"
+            summary: "{{title}} ({{category}})"
+            fields:
+              - { label: "اسم المشروع", name: "title", widget: "string" }
+              - label: "التصنيف"
+                name: "category"
+                widget: "select"
+                options:
+                  - { label: "داخلي", value: "interior" }
+                  - { label: "معماري", value: "architectural" }
+              - { label: "صورة المشروع", name: "image", widget: "image" }
+              - { label: "وصف مختصر", name: "description", widget: "text", required: false }
