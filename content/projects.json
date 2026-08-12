@@ -1,75 +1,99 @@
 {
   "items": [
     {
-      "title": "Private Villa — Exterior",
-      "category": "architectural",
-      "image": "https://static.wixstatic.com/media/72c04b_1efe13c975074d80a999b5b9e6ef36f6~mv2.png",
-      "description": "Modern private villa exterior design."
-    },
-    {
       "title": "Private Villa",
+      "title_ar": "فيلا خاصة",
       "category": "architectural",
-      "image": "https://static.wixstatic.com/media/72c04b_4f171067cc514b209c8d6463e35568d3~mv2.png",
-      "description": "Private villa architectural design."
-    },
-    {
-      "title": "Private Villa",
-      "category": "architectural",
-      "image": "https://static.wixstatic.com/media/72c04b_4f2313bd1170472fab8b9a3cbfb9e375~mv2.png",
-      "description": "Private villa architectural design."
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_4f171067cc514b209c8d6463e35568d3~mv2.png",
+        "https://static.wixstatic.com/media/72c04b_4f2313bd1170472fab8b9a3cbfb9e375~mv2.png",
+        "https://static.wixstatic.com/media/72c04b_1efe13c975074d80a999b5b9e6ef36f6~mv2.png"
+      ],
+      "description": "Modern private villa — exterior and architectural design.",
+      "description_ar": "تصميم معماري حديث لفيلا خاصة — واجهات خارجية ومساحات معمارية."
     },
     {
       "title": "Living Area Interior",
+      "title_ar": "تصميم داخلي لصالة معيشة",
       "category": "interior",
-      "image": "https://static.wixstatic.com/media/72c04b_984b869ee9204b5b98499657f9b80b97~mv2.jpeg",
-      "description": "Residential living area interior design."
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_984b869ee9204b5b98499657f9b80b97~mv2.jpeg"
+      ],
+      "description": "Residential living area interior design.",
+      "description_ar": "تصميم داخلي لصالة معيشة سكنية."
     },
     {
       "title": "Al Karmi Fashion",
+      "title_ar": "الكرمي فاشون",
       "category": "interior",
-      "image": "https://static.wixstatic.com/media/72c04b_0535b8acd05a4dac9bc61f22bb690b3f~mv2.jpg",
-      "description": "A refined retail interior blending minimal design with a sense of luxury."
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_0535b8acd05a4dac9bc61f22bb690b3f~mv2.jpg",
+        "https://static.wixstatic.com/media/72c04b_3162b641f8c848e397a7e6075049edca~mv2.jpg",
+        "https://static.wixstatic.com/media/72c04b_2c9f1ca06f554f8eabc29819eb2efdff~mv2.jpg",
+        "https://static.wixstatic.com/media/72c04b_8a969e254d764836adee665915b00ee6~mv2.jpg",
+        "https://static.wixstatic.com/media/72c04b_5f750a08e7fa4cb2967a84b1348fe13b~mv2.jpg",
+        "https://static.wixstatic.com/media/72c04b_10909377110241e5bcf0d5218ac9a189~mv2.jpg"
+      ],
+      "description": "A refined retail interior blending minimal design with a sense of luxury.",
+      "description_ar": "تصميم داخلي راقٍ لمتجر أزياء يجمع بين البساطة والفخامة."
     },
     {
       "title": "Restaurant",
+      "title_ar": "مطعم",
       "category": "interior",
-      "image": "https://static.wixstatic.com/media/72c04b_ed7d7250035b43b489c32765847b797f~mv2.png",
-      "description": "Restaurant interior design."
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_ed7d7250035b43b489c32765847b797f~mv2.png",
+        "https://static.wixstatic.com/media/72c04b_16c5496952aa4948a1896e4814bd63e4~mv2.png",
+        "https://static.wixstatic.com/media/72c04b_dac9885f09db445a984c1fca0355ea19~mv2.png",
+        "https://static.wixstatic.com/media/72c04b_42cad03f46d04e769eca4ed1a748f989~mv2.png"
+      ],
+      "description": "Restaurant interior design.",
+      "description_ar": "تصميم داخلي لمطعم."
     },
     {
       "title": "Clinic",
+      "title_ar": "عيادة",
       "category": "interior",
-      "image": "https://static.wixstatic.com/media/72c04b_513966ef07a1433997fde2a6d349cbf8~mv2.png",
-      "description": "Clinic interior fit-out."
-    },
-    {
-      "title": "Clothes Shop",
-      "category": "interior",
-      "image": "https://static.wixstatic.com/media/72c04b_16c5496952aa4948a1896e4814bd63e4~mv2.png",
-      "description": "Retail interior design."
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_513966ef07a1433997fde2a6d349cbf8~mv2.png"
+      ],
+      "description": "Clinic interior fit-out.",
+      "description_ar": "تجهيز وتصميم داخلي لعيادة."
     },
     {
       "title": "Study House",
+      "title_ar": "بيت الدراسة",
       "category": "interior",
-      "image": "https://static.wixstatic.com/media/72c04b_dac9885f09db445a984c1fca0355ea19~mv2.png",
-      "description": "Study house interior design."
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_dac9885f09db445a984c1fca0355ea19~mv2.png"
+      ],
+      "description": "Study house interior design.",
+      "description_ar": "تصميم داخلي لبيت دراسة."
     },
     {
       "title": "Landscape Design",
+      "title_ar": "تصميم لاندسكيب",
       "category": "architectural",
-      "image": "https://static.wixstatic.com/media/72c04b_aed8411531a74f44b7bf38d30aa8f10f~mv2.png",
-      "description": "Integrated landscape design balancing hardscape and softscape elements."
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_aed8411531a74f44b7bf38d30aa8f10f~mv2.png"
+      ],
+      "description": "Integrated landscape design balancing hardscape and softscape elements.",
+      "description_ar": "تصميم لاندسكيب متكامل يوازن بين العناصر الصلبة والخضراء."
     },
     {
       "title": "Pergola & Outdoor Seating",
+      "title_ar": "برجولا وجلسة خارجية",
       "category": "architectural",
-      "image": "https://static.wixstatic.com/media/72c04b_e356d1d4454d4392968e3140f87adf54~mv2.jpeg",
-      "description": "Modern landscape design with pergola and structured seating area."
-    },
-    {
-      "title": "Raid Fahmi",
-      "category": "architectural",
-      "image": "/uploads/1-3-.png"
+      "images": [
+        "https://static.wixstatic.com/media/72c04b_e356d1d4454d4392968e3140f87adf54~mv2.jpeg",
+        "https://static.wixstatic.com/media/72c04b_a024f8d8a7054de396ea8db64e3912aa~mv2.jpeg",
+        "https://static.wixstatic.com/media/72c04b_efe0827bc0384b0f80be5ded0e5485d9~mv2.jpeg",
+        "https://static.wixstatic.com/media/72c04b_ae87d1db03f34218a9c060fae8d051ba~mv2.jpeg",
+        "https://static.wixstatic.com/media/72c04b_962c303fdcab4397a4d92a2bdc96b266~mv2.jpeg",
+        "https://static.wixstatic.com/media/72c04b_2143e149bd224ef2a9ba0ec7ad972efe~mv2.jpeg"
+      ],
+      "description": "Modern landscape design with pergola and structured seating area.",
+      "description_ar": "تصميم لاندسكيب حديث يشمل برجولا ومنطقة جلوس منظمة."
     }
   ]
 }
