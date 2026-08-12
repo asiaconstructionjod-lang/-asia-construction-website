@@ -1,13 +1,15 @@
 {
   "heroImage": "https://static.wixstatic.com/media/72c04b_1efe13c975074d80a999b5b9e6ef36f6~mv2.png",
-  "facebook": "https://www.facebook.com/asiaconstruction.jordan",
+  "socialLinks": [
+    { "platform": "Facebook", "url": "https://www.facebook.com/asiaconstruction.jordan" },
+    { "platform": "Instagram", "url": "https://www.instagram.com/asiaccjo/" }
+  ]
   "logo": "https://static.wixstatic.com/media/72c04b_81f704ff37f24e1194588945621e15ef~mv2.png",
   "phone": "+962791080073",
   "aboutImage": "https://static.wixstatic.com/media/72c04b_dc24e8c71d6d491b868b0b94d23fe83f~mv2.png",
   "companyNameEn": "Asia Construction",
   "heroTitle_ar": "ابنِ حلمك",
   "heroSubtitle": "Asia Construction, where the realms of construction, engineering, interior design, architecture, and cutting-edge technology converge.",
-  "instagram": "https://www.instagram.com/asiaccjo/",
   "address": "Jordan - Irbid - Wasfi Al-Tall St - AlMaha Complex, 2nd Floor - Office 205",
   "aboutText_ar": "تأسست شركة آسيا للإنشاءات لتطوير مفاهيم معمارية تدفع تطور البيئة العمرانية. يمتلك فريقنا الخبرة الكاملة في الإبداع والتصميم لبناء مساحات تتناسب مع طبيعة الأرض واحتياجات العميل، لضمان أن يحقق كل مشروع معايير الراحة والجودة العالية وكفاءة استهلاك الطاقة وبأقل تكلفة ممكنة.",
   "companyNameAr": "شركة آسيا للإنشاءات",
