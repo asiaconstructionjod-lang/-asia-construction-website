@@ -26,6 +26,7 @@
         <li><a href="#about" data-i18n="nav_about">About Us</a></li>
         <li><a href="#services" data-i18n="nav_services">Services</a></li>
         <li><a href="#work" data-i18n="nav_work">Our Work</a></li>
+        <li><a href="#reels" data-i18n="nav_reels">Reels</a></li>
         <li><a href="#contact" data-i18n="nav_contact">Contact Us</a></li>
         <li><button type="button" class="lang-switch" id="langToggle">AR</button></li>
       </ul>
@@ -114,6 +115,34 @@
     </div>
   </div>
 </section>
+
+<section id="reels">
+  <div class="container">
+    <div class="section-head center">
+      <span class="eyebrow" data-i18n="reels_eyebrow">Video Gallery</span>
+      <h2 data-i18n="reels_heading">Reels</h2>
+    </div>
+    <div class="project-grid" id="reelsGrid">
+      <!-- populated by JS from content/projects.json -->
+    </div>
+  </div>
+</section>
+
+<div class="lightbox-overlay" id="videoLightbox">
+  <div class="lightbox-box">
+    <div class="lightbox-top">
+      <div>
+        <span class="tag" id="vlTag">Interior</span>
+        <h3 id="vlTitle" style="margin-top:8px;">Project Title</h3>
+      </div>
+      <button class="lightbox-close" id="vlClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="lightbox-main">
+      <video id="vlVideo" controls playsinline controlsList="nodownload noremoteplayback" style="max-width:100%;max-height:70vh;"></video>
+    </div>
+    <p class="lightbox-desc" id="vlDesc"></p>
+  </div>
+</div>
 
 <div class="lightbox-overlay" id="lightbox">
   <div class="lightbox-box">
@@ -218,6 +247,7 @@
           <li><a href="#about" data-i18n="nav_about">About Us</a></li>
           <li><a href="#services" data-i18n="nav_services">Services</a></li>
           <li><a href="#work" data-i18n="nav_work">Our Work</a></li>
+          <li><a href="#reels" data-i18n="nav_reels">Reels</a></li>
           <li><a href="#contact" data-i18n="nav_contact">Contact Us</a></li>
         </ul>
       </div>
@@ -256,6 +286,7 @@ var translations = {
     svc4_title: "Landscape", svc4_desc: "Designing and arranging outdoor elements to create natural spaces — seating areas, water features, greenery, and more.",
     svc5_title: "Engineering Management", svc5_desc: "Managing and implementing projects with the highest quality, the shortest time, and the lowest possible price.",
     work_eyebrow: "Our Work", work_heading: "Our Work", work_architectural: "Architectural", work_interior: "Interior",
+    nav_reels: "Reels", reels_eyebrow: "Video Gallery", reels_heading: "Reels",
     contact_eyebrow: "Get In Touch", contact_heading: "Contact Us",
     contact_phone_label: "Phone", contact_email_label: "Email", contact_address_label: "Address", contact_follow_label: "Follow Us",
     form_name: "Full Name", form_phone: "Phone", form_email: "Email", form_message: "Message", form_submit: "Send Message",
@@ -276,6 +307,7 @@ var translations = {
     svc4_title: "لاندسكيب", svc4_desc: "تصميم وترتيب العناصر الخارجية لخلق مساحات طبيعية — مناطق جلوس، عناصر مائية، مساحات خضراء، وغيرها.",
     svc5_title: "إدارة هندسية", svc5_desc: "إدارة وتنفيذ المشاريع بأعلى جودة، وبأقصر وقت، وبأقل تكلفة ممكنة.",
     work_eyebrow: "أعمالنا", work_heading: "أعمالنا", work_architectural: "معماري", work_interior: "داخلي",
+    nav_reels: "ريلز", reels_eyebrow: "معرض الفيديو", reels_heading: "ريلز",
     contact_eyebrow: "تواصل معنا", contact_heading: "تواصل معنا",
     contact_phone_label: "الهاتف", contact_email_label: "البريد الإلكتروني", contact_address_label: "العنوان", contact_follow_label: "تابعونا",
     form_name: "الاسم الكامل", form_phone: "رقم الهاتف", form_email: "البريد الإلكتروني", form_message: "الرسالة", form_submit: "إرسال الرسالة",
@@ -325,6 +357,7 @@ function setLanguage(lang){
   applyStaticTranslations();
   applySiteContent();
   renderProjects();
+  renderReels();
   if (currentLightboxProject) openLightbox(currentLightboxProject);
 }
 
@@ -337,6 +370,10 @@ fetch('content/site.json').then(r => r.json()).then(site => {
   siteData = site;
   document.getElementById('logoImg').src = site.logo;
   document.getElementById('favicon').href = site.logo;
+  if (site.heroImage) {
+    document.getElementById('home').style.backgroundImage =
+      "linear-gradient(180deg, rgba(10,10,10,.72), rgba(10,10,10,.85)), url('" + site.heroImage + "')";
+  }
   document.getElementById('companyEn').textContent = site.companyNameEn;
   document.getElementById('companyAr').textContent = site.companyNameAr;
   document.getElementById('footerCompany').textContent = site.companyNameEn;
@@ -368,6 +405,7 @@ var allProjects = [];
 fetch('content/projects.json').then(r => r.json()).then(data => {
   allProjects = data.items || [];
   renderProjects();
+  renderReels();
 }).catch(e => console.error('Could not load projects.json', e));
 
 // Supports both the new "images" array field and the old single "image" field
@@ -415,6 +453,69 @@ function renderProjects(){
   renderGroup('gridArchitectural', 'architectural');
   renderGroup('gridInterior', 'interior');
 }
+
+// ---- Reels / video gallery ----
+var videoLightbox = document.getElementById('videoLightbox');
+var vlVideoEl = document.getElementById('vlVideo');
+vlVideoEl.oncontextmenu = function(){ return false; };
+
+function renderReels(){
+  var grid = document.getElementById('reelsGrid');
+  if (!grid) return;
+  grid.innerHTML = '';
+  var any = false;
+  allProjects.forEach(function(p){
+    var vids = Array.isArray(p.videos) ? p.videos : [];
+    vids.forEach(function(v){
+      var src = (typeof v === 'string') ? v : (v.video || '');
+      if (!src) return;
+      any = true;
+      var card = document.createElement('button');
+      card.type = 'button';
+      card.className = 'project-card';
+      var vid = document.createElement('video');
+      vid.src = src;
+      vid.muted = true;
+      vid.preload = 'metadata';
+      vid.playsInline = true;
+      vid.oncontextmenu = function(){ return false; };
+      var play = document.createElement('span');
+      play.className = 'play-badge';
+      play.innerHTML = '&#9658;';
+      card.appendChild(vid);
+      card.appendChild(play);
+      card.addEventListener('click', function(){ openVideoLightbox(p, src); });
+      grid.appendChild(card);
+    });
+  });
+  document.getElementById('reels').style.display = any ? '' : 'none';
+  document.querySelectorAll('a[href="#reels"]').forEach(function(a){
+    a.parentElement.style.display = any ? '' : 'none';
+  });
+}
+
+function openVideoLightbox(project, src){
+  document.getElementById('vlTitle').textContent = getTitle(project);
+  document.getElementById('vlTag').textContent = project.category === 'interior' ? t('lb_interior') : t('lb_architectural');
+  var desc = getDesc(project);
+  document.getElementById('vlDesc').textContent = desc || '';
+  document.getElementById('vlDesc').style.display = desc ? '' : 'none';
+  vlVideoEl.src = src;
+  videoLightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  vlVideoEl.play().catch(function(){});
+}
+
+function closeVideoLightbox(){
+  vlVideoEl.pause();
+  vlVideoEl.removeAttribute('src');
+  vlVideoEl.load();
+  videoLightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('vlClose').addEventListener('click', closeVideoLightbox);
+videoLightbox.addEventListener('click', function(e){ if (e.target === videoLightbox) closeVideoLightbox(); });
 
 // ---- Lightbox / gallery ----
 var lbImages = [];
@@ -471,10 +572,12 @@ document.getElementById('lbPrev').addEventListener('click', function(){ showImag
 document.getElementById('lbNext').addEventListener('click', function(){ showImage(lbIndex + 1); });
 lightbox.addEventListener('click', function(e){ if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', function(e){
-  if (!lightbox.classList.contains('open')) return;
-  if (e.key === 'Escape') closeLightbox();
-  if (e.key === 'ArrowLeft') showImage(lbIndex - 1);
-  if (e.key === 'ArrowRight') showImage(lbIndex + 1);
+  if (lightbox.classList.contains('open')){
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showImage(lbIndex - 1);
+    if (e.key === 'ArrowRight') showImage(lbIndex + 1);
+  }
+  if (videoLightbox.classList.contains('open') && e.key === 'Escape') closeVideoLightbox();
 });
 
 // Initial paint of static text (before fetches resolve)
