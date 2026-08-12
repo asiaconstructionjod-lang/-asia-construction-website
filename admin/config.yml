@@ -39,12 +39,16 @@ collections:
           - { label: "اللوجو", name: "logo", widget: "image" }
           - { label: "اسم الشركة (عربي)", name: "companyNameAr", widget: "string" }
           - { label: "اسم الشركة (إنجليزي)", name: "companyNameEn", widget: "string" }
-          - { label: "عنوان البانر الرئيسي", name: "heroTitle", widget: "string" }
-          - { label: "وصف البانر الرئيسي", name: "heroSubtitle", widget: "text" }
-          - { label: "نبذة عنا", name: "aboutText", widget: "text" }
+          - { label: "عنوان البانر الرئيسي (إنجليزي)", name: "heroTitle", widget: "string" }
+          - { label: "عنوان البانر الرئيسي (عربي)", name: "heroTitle_ar", widget: "string" }
+          - { label: "وصف البانر الرئيسي (إنجليزي)", name: "heroSubtitle", widget: "text" }
+          - { label: "وصف البانر الرئيسي (عربي)", name: "heroSubtitle_ar", widget: "text" }
+          - { label: "نبذة عنا (إنجليزي)", name: "aboutText", widget: "text" }
+          - { label: "نبذة عنا (عربي)", name: "aboutText_ar", widget: "text" }
           - { label: "رقم الهاتف", name: "phone", widget: "string" }
           - { label: "البريد الإلكتروني", name: "email", widget: "string" }
-          - { label: "العنوان", name: "address", widget: "text" }
+          - { label: "العنوان (إنجليزي)", name: "address", widget: "text" }
+          - { label: "العنوان (عربي)", name: "address_ar", widget: "text" }
           - { label: "رابط فيسبوك", name: "facebook", widget: "string", required: false }
           - { label: "رابط انستغرام", name: "instagram", widget: "string", required: false }
 
@@ -60,12 +64,17 @@ collections:
             widget: "list"
             summary: "{{title}} ({{category}})"
             fields:
-              - { label: "اسم المشروع", name: "title", widget: "string" }
+              - { label: "اسم المشروع (إنجليزي)", name: "title", widget: "string" }
+              - { label: "اسم المشروع (عربي)", name: "title_ar", widget: "string", required: false }
               - label: "التصنيف"
                 name: "category"
                 widget: "select"
                 options:
                   - { label: "داخلي", value: "interior" }
                   - { label: "معماري", value: "architectural" }
-              - { label: "صورة المشروع", name: "image", widget: "image" }
-              - { label: "وصف مختصر", name: "description", widget: "text", required: false }
+              - label: "صور المشروع"
+                name: "images"
+                widget: "list"
+                field: { label: "صورة", name: "image", widget: "image" }
+              - { label: "وصف مختصر (إنجليزي)", name: "description", widget: "text", required: false }
+              - { label: "وصف مختصر (عربي)", name: "description_ar", widget: "text", required: false }
