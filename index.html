@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <header class="site-header">
   <div class="nav-wrap">
     <a class="brand" href="#home">
@@ -33,7 +32,6 @@
     </nav>
   </div>
 </header>
-
 <section class="hero" id="home">
   <div class="container">
     <span class="eyebrow" data-i18n="hero_eyebrow">Construction &middot; Engineering &middot; Design</span>
@@ -45,7 +43,6 @@
     </div>
   </div>
 </section>
-
 <section id="about">
   <div class="container two-col">
     <div>
@@ -58,7 +55,6 @@
     </div>
   </div>
 </section>
-
 <section class="alt" id="services">
   <div class="container">
     <div class="section-head center">
@@ -94,7 +90,6 @@
     </div>
   </div>
 </section>
-
 <section id="work">
   <div class="container">
     <div class="section-head center">
@@ -115,7 +110,6 @@
     </div>
   </div>
 </section>
-
 <section id="reels">
   <div class="container">
     <div class="section-head center">
@@ -127,7 +121,6 @@
     </div>
   </div>
 </section>
-
 <div class="lightbox-overlay" id="videoLightbox">
   <div class="lightbox-box">
     <div class="lightbox-top">
@@ -144,7 +137,6 @@
     <p class="lightbox-desc" id="vlDesc"></p>
   </div>
 </div>
-
 <div class="lightbox-overlay" id="lightbox">
   <div class="lightbox-box">
     <div class="lightbox-top">
@@ -163,7 +155,6 @@
     <div class="lightbox-thumbs" id="lbThumbs"></div>
   </div>
 </div>
-
 <section class="alt" id="contact">
   <div class="container">
     <div class="section-head center">
@@ -197,11 +188,7 @@
           <div class="ico">&#9737;</div>
           <div>
             <h4 data-i18n="contact_follow_label">Follow Us</h4>
-            <p>
-              <a id="fbLink" href="#" target="_blank" rel="noopener">Facebook</a>
-              &nbsp;&middot;&nbsp;
-              <a id="igLink" href="#" target="_blank" rel="noopener">Instagram</a>
-            </p>
+            <p id="contactSocialLinks"></p>
           </div>
         </div>
         <iframe
@@ -230,17 +217,13 @@
     </div>
   </div>
 </section>
-
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <h4 id="footerCompany">Asia Construction</h4>
         <p style="color:#b8b8b8;font-size:.9rem;max-width:320px;" data-i18n="footer_tagline">Construction, engineering, interior design, architecture and technology — under one roof.</p>
-        <div class="social-row">
-          <a id="fbIcon" href="#" target="_blank" rel="noopener">f</a>
-          <a id="igIcon" href="#" target="_blank" rel="noopener">ig</a>
-        </div>
+        <div class="social-row" id="footerSocialLinks"></div>
       </div>
       <div>
         <h4 data-i18n="footer_quicklinks">Quick Links</h4>
@@ -267,12 +250,10 @@
     </div>
   </div>
 </footer>
-
 <script>
 document.getElementById('navToggle').addEventListener('click', function(){
   document.getElementById('mainNav').classList.toggle('open');
 });
-
 // ---- i18n: static UI text ----
 var translations = {
   en: {
@@ -318,15 +299,12 @@ var translations = {
     lb_interior: "داخلي", lb_architectural: "معماري"
   }
 };
-
 var currentLang = localStorage.getItem('lang') || 'en';
 var siteData = null;
 var currentLightboxProject = null;
-
 function t(key){
   return (translations[currentLang] && translations[currentLang][key]) || translations.en[key] || key;
 }
-
 function applyStaticTranslations(){
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     el.textContent = t(el.getAttribute('data-i18n'));
@@ -335,7 +313,6 @@ function applyStaticTranslations(){
   document.documentElement.lang = currentLang;
   document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
 }
-
 function applySiteContent(){
   if (!siteData) return;
   var site = siteData;
@@ -345,13 +322,11 @@ function applySiteContent(){
   document.getElementById('aboutText').textContent = (ar && site.aboutText_ar) ? site.aboutText_ar : site.aboutText;
   var addr = (ar && site.address_ar) ? site.address_ar : site.address;
   document.getElementById('addressText').textContent = addr;
-
   document.getElementById('footerContact').innerHTML =
     '<li>' + site.phone + '</li>' +
     '<li>' + addr + '</li>' +
     '<li>' + site.email + '</li>';
 }
-
 function setLanguage(lang){
   currentLang = lang;
   localStorage.setItem('lang', lang);
@@ -361,11 +336,31 @@ function setLanguage(lang){
   renderReels();
   if (currentLightboxProject) openLightbox(currentLightboxProject);
 }
-
 document.getElementById('langToggle').addEventListener('click', function(){
   setLanguage(currentLang === 'en' ? 'ar' : 'en');
 });
-
+// ---- Social links (dynamic, any number of platforms) ----
+function renderSocialLinks(){
+  var links = (siteData && Array.isArray(siteData.socialLinks)) ? siteData.socialLinks.filter(function(s){ return s && s.url; }) : [];
+  var contactEl = document.getElementById('contactSocialLinks');
+  if (contactEl) {
+    contactEl.innerHTML = links.map(function(s){
+      return '<a href="' + s.url + '" target="_blank" rel="noopener">' + (s.platform || 'Link') + '</a>';
+    }).join('&nbsp;&middot;&nbsp;');
+  }
+  var footerEl = document.getElementById('footerSocialLinks');
+  if (footerEl) {
+    footerEl.innerHTML = '';
+    links.forEach(function(s){
+      var a = document.createElement('a');
+      a.href = s.url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.textContent = (s.platform || '?').slice(0, 2);
+      footerEl.appendChild(a);
+    });
+  }
+}
 // ---- Load editable content from /content/site.json ----
 fetch('content/site.json').then(r => r.json()).then(site => {
   siteData = site;
@@ -374,36 +369,24 @@ fetch('content/site.json').then(r => r.json()).then(site => {
   if (site.heroImage) {
     document.getElementById('home').style.backgroundImage =
       "linear-gradient(180deg, rgba(10,10,10,.72), rgba(10,10,10,.85)), url('" + site.heroImage + "')";
-    if (site.aboutImage) {
-    document.getElementById('aboutImg').src = site.aboutImage;
   }
+  if (site.aboutImage) {
+    document.getElementById('aboutImg').src = site.aboutImage;
   }
   document.getElementById('companyEn').textContent = site.companyNameEn;
   document.getElementById('companyAr').textContent = site.companyNameAr;
   document.getElementById('footerCompany').textContent = site.companyNameEn;
   document.getElementById('footerCompany2').textContent = site.companyNameEn;
-
   var phoneLink = document.getElementById('phoneLink');
   phoneLink.textContent = site.phone;
   phoneLink.href = 'tel:' + site.phone.replace(/\s+/g, '');
-
   var emailLink = document.getElementById('emailLink');
   emailLink.textContent = site.email;
   emailLink.href = 'mailto:' + site.email;
-
-  if (site.facebook) {
-    document.getElementById('fbLink').href = site.facebook;
-    document.getElementById('fbIcon').href = site.facebook;
-  }
-  if (site.instagram) {
-    document.getElementById('igLink').href = site.instagram;
-    document.getElementById('igIcon').href = site.instagram;
-  }
-
+  renderSocialLinks();
   document.getElementById('footerYear').textContent = new Date().getFullYear();
   applySiteContent();
 }).catch(e => console.error('Could not load site.json', e));
-
 // ---- Load projects from /content/projects.json ----
 var allProjects = [];
 fetch('content/projects.json').then(r => r.json()).then(data => {
@@ -411,21 +394,18 @@ fetch('content/projects.json').then(r => r.json()).then(data => {
   renderProjects();
   renderReels();
 }).catch(e => console.error('Could not load projects.json', e));
-
 // Supports both the new "images" array field and the old single "image" field
 function getImages(p){
   if (Array.isArray(p.images) && p.images.length) return p.images;
   if (p.image) return [p.image];
   return [];
 }
-
 function getTitle(p){
   return (currentLang === 'ar' && p.title_ar) ? p.title_ar : p.title;
 }
 function getDesc(p){
   return (currentLang === 'ar' && p.description_ar) ? p.description_ar : p.description;
 }
-
 // Blocks right-click save and drag-to-save on an <img>. Deters casual
 // downloading — a determined visitor can still find the image via devtools,
 // this is not real DRM, just friction.
@@ -433,7 +413,6 @@ function protectImage(img){
   img.draggable = false;
   img.oncontextmenu = function(){ return false; };
 }
-
 function renderGroup(gridId, category){
   var grid = document.getElementById(gridId);
   grid.innerHTML = '';
@@ -452,25 +431,21 @@ function renderGroup(gridId, category){
     grid.appendChild(card);
   });
 }
-
 function renderProjects(){
   renderGroup('gridArchitectural', 'architectural');
   renderGroup('gridInterior', 'interior');
 }
-
 // ---- Reels / video gallery ----
 var videoLightbox = document.getElementById('videoLightbox');
 var vlVideoEl = document.getElementById('vlVideo');
 var vlYoutubeEl = document.getElementById('vlYoutube');
 vlVideoEl.oncontextmenu = function(){ return false; };
-
 // Recognizes youtube.com/watch, youtu.be, youtube.com/shorts and /embed links
 function getYouTubeId(url){
   if (!url) return null;
   var m = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/);
   return m ? m[1] : null;
 }
-
 function renderReels(){
   var grid = document.getElementById('reelsGrid');
   if (!grid) return;
@@ -514,14 +489,12 @@ function renderReels(){
     a.parentElement.style.display = any ? '' : 'none';
   });
 }
-
 function openVideoLightbox(project, src){
   document.getElementById('vlTitle').textContent = getTitle(project);
   document.getElementById('vlTag').textContent = project.category === 'interior' ? t('lb_interior') : t('lb_architectural');
   var desc = getDesc(project);
   document.getElementById('vlDesc').textContent = desc || '';
   document.getElementById('vlDesc').style.display = desc ? '' : 'none';
-
   var ytId = getYouTubeId(src);
   if (ytId) {
     vlVideoEl.pause();
@@ -536,11 +509,9 @@ function openVideoLightbox(project, src){
     vlVideoEl.src = src;
     vlVideoEl.play().catch(function(){});
   }
-
   videoLightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function closeVideoLightbox(){
   vlVideoEl.pause();
   vlVideoEl.removeAttribute('src');
@@ -549,16 +520,13 @@ function closeVideoLightbox(){
   videoLightbox.classList.remove('open');
   document.body.style.overflow = '';
 }
-
 document.getElementById('vlClose').addEventListener('click', closeVideoLightbox);
 videoLightbox.addEventListener('click', function(e){ if (e.target === videoLightbox) closeVideoLightbox(); });
-
 // ---- Lightbox / gallery ----
 var lbImages = [];
 var lbIndex = 0;
 var lightbox = document.getElementById('lightbox');
 protectImage(document.getElementById('lbImage'));
-
 function openLightbox(project){
   currentLightboxProject = project;
   lbImages = getImages(project);
@@ -568,7 +536,6 @@ function openLightbox(project){
   var desc = getDesc(project);
   document.getElementById('lbDesc').textContent = desc || '';
   document.getElementById('lbDesc').style.display = desc ? '' : 'none';
-
   var thumbs = document.getElementById('lbThumbs');
   thumbs.innerHTML = '';
   thumbs.style.display = lbImages.length > 1 ? '' : 'none';
@@ -579,15 +546,12 @@ function openLightbox(project){
     t.addEventListener('click', function(){ showImage(i); });
     thumbs.appendChild(t);
   });
-
   document.getElementById('lbPrev').style.display = lbImages.length > 1 ? '' : 'none';
   document.getElementById('lbNext').style.display = lbImages.length > 1 ? '' : 'none';
-
   showImage(0);
   lightbox.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function showImage(i){
   lbIndex = (i + lbImages.length) % lbImages.length;
   document.getElementById('lbImage').src = lbImages[lbIndex];
@@ -596,13 +560,11 @@ function showImage(i){
     thumbs[j].classList.toggle('active', j === lbIndex);
   }
 }
-
 function closeLightbox(){
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
   currentLightboxProject = null;
 }
-
 document.getElementById('lbClose').addEventListener('click', closeLightbox);
 document.getElementById('lbPrev').addEventListener('click', function(){ showImage(lbIndex - 1); });
 document.getElementById('lbNext').addEventListener('click', function(){ showImage(lbIndex + 1); });
@@ -615,7 +577,6 @@ document.addEventListener('keydown', function(e){
   }
   if (videoLightbox.classList.contains('open') && e.key === 'Escape') closeVideoLightbox();
 });
-
 // Initial paint of static text (before fetches resolve)
 applyStaticTranslations();
 </script>
